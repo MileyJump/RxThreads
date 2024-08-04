@@ -17,6 +17,7 @@
 		B0728AA22C5F853A00B7455F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B0728AA12C5F853A00B7455F /* SnapKit */; };
 		B0728AA52C5F855200B7455F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B0728AA42C5F855200B7455F /* RxCocoa */; };
 		B0728AA72C5F855200B7455F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B0728AA62C5F855200B7455F /* RxSwift */; };
+		B0728AA92C5F89A200B7455F /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0728AA82C5F89A200B7455F /* PhoneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B0728A962C5F84FD00B7455F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0728A982C5F84FD00B7455F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0728A9E2C5F851C00B7455F /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		B0728AA82C5F89A200B7455F /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				B0728A8C2C5F84FC00B7455F /* SceneDelegate.swift */,
 				B0728A8E2C5F84FC00B7455F /* ViewController.swift */,
 				B0728A9E2C5F851C00B7455F /* PasswordViewController.swift */,
+				B0728AA82C5F89A200B7455F /* PhoneViewController.swift */,
 				B0728A902C5F84FC00B7455F /* Main.storyboard */,
 				B0728A932C5F84FD00B7455F /* Assets.xcassets */,
 				B0728A952C5F84FD00B7455F /* LaunchScreen.storyboard */,
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0728A8F2C5F84FC00B7455F /* ViewController.swift in Sources */,
+				B0728AA92C5F89A200B7455F /* PhoneViewController.swift in Sources */,
 				B0728A9F2C5F851C00B7455F /* PasswordViewController.swift in Sources */,
 				B0728A8B2C5F84FC00B7455F /* AppDelegate.swift in Sources */,
 				B0728A8D2C5F84FC00B7455F /* SceneDelegate.swift in Sources */,
