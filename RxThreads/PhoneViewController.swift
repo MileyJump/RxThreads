@@ -69,7 +69,7 @@ final class PhoneViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         nextButton.rx.tap.bind(with: self) { owner, _ in
-            print("show alert")
+            owner.navigationController?.pushViewController(BirthdayViewController(), animated: true)
         }
         .disposed(by: disposeBag)
     }
