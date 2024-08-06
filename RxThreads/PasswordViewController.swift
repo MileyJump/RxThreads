@@ -30,10 +30,9 @@ final class PasswordViewController: UIViewController {
         return button
     }()
     
-    let viewModel = PasswordViewModel()
     private let descriptionLabel = UILabel()
     
-//    private let validText = Observable.just("8자 이상 입력해주세요")
+    private let validText = Observable.just("8자 이상 입력해주세요")
     
     private let disposeBag = DisposeBag()
     
@@ -45,7 +44,7 @@ final class PasswordViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel.validText
+        validText
             .bind(to: descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         

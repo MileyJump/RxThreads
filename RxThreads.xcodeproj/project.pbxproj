@@ -19,7 +19,7 @@
 		B0728AA72C5F855200B7455F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B0728AA62C5F855200B7455F /* RxSwift */; };
 		B0728AA92C5F89A200B7455F /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0728AA82C5F89A200B7455F /* PhoneViewController.swift */; };
 		B0728AAB2C5FDA3300B7455F /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0728AAA2C5FDA3300B7455F /* BirthdayViewController.swift */; };
-		B0A5AC332C611631005C8574 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5AC322C611631005C8574 /* PasswordViewModel.swift */; };
+		B0A5AC572C624E8F005C8574 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5AC562C624E8F005C8574 /* ShoppingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 		B0728A9E2C5F851C00B7455F /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		B0728AA82C5F89A200B7455F /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		B0728AAA2C5FDA3300B7455F /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
-		B0A5AC322C611631005C8574 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		B0A5AC562C624E8F005C8574 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +74,13 @@
 				B0728A8C2C5F84FC00B7455F /* SceneDelegate.swift */,
 				B0728A8E2C5F84FC00B7455F /* ViewController.swift */,
 				B0728A9E2C5F851C00B7455F /* PasswordViewController.swift */,
-				B0A5AC322C611631005C8574 /* PasswordViewModel.swift */,
 				B0728AA82C5F89A200B7455F /* PhoneViewController.swift */,
 				B0728AAA2C5FDA3300B7455F /* BirthdayViewController.swift */,
 				B0728A902C5F84FC00B7455F /* Main.storyboard */,
 				B0728A932C5F84FD00B7455F /* Assets.xcassets */,
 				B0728A952C5F84FD00B7455F /* LaunchScreen.storyboard */,
 				B0728A982C5F84FD00B7455F /* Info.plist */,
+				B0A5AC562C624E8F005C8574 /* ShoppingViewController.swift */,
 			);
 			path = RxThreads;
 			sourceTree = "<group>";
@@ -166,8 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0728A8F2C5F84FC00B7455F /* ViewController.swift in Sources */,
-				B0A5AC332C611631005C8574 /* PasswordViewModel.swift in Sources */,
 				B0728AA92C5F89A200B7455F /* PhoneViewController.swift in Sources */,
+				B0A5AC572C624E8F005C8574 /* ShoppingViewController.swift in Sources */,
 				B0728A9F2C5F851C00B7455F /* PasswordViewController.swift in Sources */,
 				B0728A8B2C5F84FC00B7455F /* AppDelegate.swift in Sources */,
 				B0728A8D2C5F84FC00B7455F /* SceneDelegate.swift in Sources */,
