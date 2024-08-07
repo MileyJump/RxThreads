@@ -18,31 +18,47 @@ final class ShoppingViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    private let viewModel = ShoppingViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHierarchy()
         configureLayout()
         setupUI()
+        bind()
     }
     
-     func configureHierarchy() {
+    func bind() {
+        let input = ShoppingViewModel.Input(addButtonTap: addButton.rx.tap, addText: addTextField.rx.text.orEmpty)
+        let outPut = viewModel.transform(input: input)
+        
+        outPut.shoppingList
+            .bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) {
+                (row, element, cell) in
+                cell.listLabel.text = element
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func configureHierarchy() {
         view.addSubview(addView)
         addView.addSubview(addTextField)
         addView.addSubview(addButton)
         view.addSubview(tableView)
     }
     
-     func configureLayout() {
+    func configureLayout() {
         addView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.height.equalTo(56)
         }
-       
+        
         addTextField.snp.makeConstraints { make in
             make.height.equalTo(44)
-            make.centerY.equalTo(addView.snp.centerY)
-            make.leading.equalTo(addView.snp.leading).offset(12)
+            make.leading.equalTo(addView).offset(10)
+            make.centerY.equalTo(addView)
+            make.trailing.equalTo(addButton.snp.leading).inset(-10)
         }
         
         addButton.snp.makeConstraints { make in
@@ -59,8 +75,14 @@ final class ShoppingViewController: UIViewController {
     
     func setupUI() {
         
+        tableView.register(ShoppingTableViewCell.self, forCellReuseIdentifier: ShoppingTableViewCell.identifier)
+        tableView.rowHeight = 100
         
-        addView.backgroundColor = .systemGray2
+        
+        view.backgroundColor = .white
+        tableView.backgroundColor = .blue
+        
+        addView.backgroundColor = .systemGray6
         addView.layer.cornerRadius = 8
         
         addTextField.backgroundColor = .systemGray6
@@ -68,4 +90,6 @@ final class ShoppingViewController: UIViewController {
         
         addButton.setTitle("추가", for: .normal)
         addButton.tintColor = .systemGray5
+        addButton.setTitleColor(.black, for: .normal)
     }
+}
