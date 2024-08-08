@@ -22,15 +22,19 @@ class ShoppingViewModel {
         "RxSwift 잘하는 법 책 구매하기"
     ]
     
+    // 체크 상태를 저장할 BehaviorSubject
+      private var checkedItems = BehaviorSubject<[Int: Bool]>(value: [:])
     
     
     struct Input {
         let addButtonTap: ControlEvent<Void>
         let addText: ControlProperty<String>
+        let checkButtonTap: Observable<Int>
     }
     
     struct Output {
         let shoppingList: Observable<[String]> // 테이블뷰 데이터
+        let checkedItems: Observable<[Int: Bool]> // 체크 상태 데이터
     }
     
     func transform(input: Input) -> Output {
@@ -42,11 +46,22 @@ class ShoppingViewModel {
             .filter { !$0.isEmpty } // 텍스트가 비어있지 않은 경우만 처리
             .subscribe(with: self) { owner, value in
                 owner.shoppingList.append(value)
+                print(owner.shoppingList)
             }
             .disposed(by: disposeBag)
         
+        input.checkButtonTap
+            .withLatestFrom(checkedItems) { index, checkedItems in
+                var newCheckedItems = checkedItems
+                let isChecked = checkedItems[index] ?? false
+                newCheckedItems[index] = !isChecked
+                return newCheckedItems
+            }
+            .bind(to: checkedItems)
+            .disposed(by: disposeBag)
+        
         return Output(
-            shoppingList: shoppingList)
+            shoppingList: shoppingList, checkedItems: checkedItems)
         
     }
 }

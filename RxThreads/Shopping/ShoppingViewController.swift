@@ -30,15 +30,36 @@ final class ShoppingViewController: UIViewController {
     }
     
     func bind() {
-        let input = ShoppingViewModel.Input(addButtonTap: addButton.rx.tap, addText: addTextField.rx.text.orEmpty)
-        let outPut = viewModel.transform(input: input)
+        let input = ShoppingViewModel.Input(addButtonTap: addButton.rx.tap, addText: addTextField.rx.text.orEmpty, checkButtonTap: tableView.rx.itemSelected.map { $0.row } )
+        let output = viewModel.transform(input: input)
         
-        outPut.shoppingList
+        output.shoppingList
             .bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) {
                 (row, element, cell) in
                 cell.listLabel.text = element
+                
+                output.checkedItems
+                    .map { $0[row] ?? false }
+                    .bind(to: cell.checkButton.rx.isSelected)
+                    .disposed(by: disposeBag)
+                
+                cell.checkButton.rx.tap
+                    .map { row }
+                    .bind(to: input.checkButtonTap)
+                    .disposed(by: disposeBag)
+                
+                // 체크 상태에 따라 버튼 이미지 설정
+                output.checkedItems
+                    .map { $0[row] ?? false }
+                    .subscribe(onNext: { isChecked in
+                        let imageName = isChecked ? "checkmark.square.fill" : "checkmark.square"
+                        cell.checkButton.setImage(UIImage(systemName: imageName), for: .normal)
+                    })
+                    .disposed(by: disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        
     }
     
     func configureHierarchy() {
@@ -76,7 +97,7 @@ final class ShoppingViewController: UIViewController {
     func setupUI() {
         
         tableView.register(ShoppingTableViewCell.self, forCellReuseIdentifier: ShoppingTableViewCell.identifier)
-        tableView.rowHeight = 100
+        tableView.rowHeight = 80
         
         
         view.backgroundColor = .white

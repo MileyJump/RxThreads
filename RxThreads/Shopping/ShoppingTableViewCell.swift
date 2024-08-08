@@ -22,6 +22,7 @@ final class ShoppingTableViewCell: UITableViewCell {
         setupUI()
     }
     
+ 
 
     private func configureHierarchy() {
         contentView.addSubview(backView)
