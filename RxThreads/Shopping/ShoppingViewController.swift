@@ -38,24 +38,6 @@ final class ShoppingViewController: UIViewController {
                 (row, element, cell) in
                 cell.listLabel.text = element
                 
-                output.checkedItems
-                    .map { $0[row] ?? false }
-                    .bind(to: cell.checkButton.rx.isSelected)
-                    .disposed(by: disposeBag)
-                
-                cell.checkButton.rx.tap
-                    .map { row }
-                    .bind(to: input.checkButtonTap)
-                    .disposed(by: disposeBag)
-                
-                // 체크 상태에 따라 버튼 이미지 설정
-                output.checkedItems
-                    .map { $0[row] ?? false }
-                    .subscribe(onNext: { isChecked in
-                        let imageName = isChecked ? "checkmark.square.fill" : "checkmark.square"
-                        cell.checkButton.setImage(UIImage(systemName: imageName), for: .normal)
-                    })
-                    .disposed(by: disposeBag)
             }
             .disposed(by: disposeBag)
         
